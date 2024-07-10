@@ -1,0 +1,34 @@
+﻿<style>
+    .error {
+        color: red !important;
+        font-size: 1.2em !important; /* Only use !important as a last resort */
+    }
+</style>
+@model FrontChannelLogoutViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="text-center">
+        <h1 class="display-4">Welcome to CRM Application</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+        <p>Hello @ViewBag.Email</p>  <!-- Removed the semicolon -->
+        <p>@Html.Raw(ViewBag.Message)</p>  <!-- Removed the semicolon -->
+        <a class="btn btn-primary" asp-action="Logout">LogOut</a>  <!-- Corrected the action name if necessary -->
+
+        @foreach (var url in Model.IframeUrls)
+        {
+            <iframe src="@url" style="display:none;"></iframe>
+        }
+    </div>
+}
+else
+{
+    <div class="text-center">
+        <h1 class="display-4">Welcome to CRM Application</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+        <a class="btn btn-primary" asp-action="Login">Login</a>
+    </div>
+}

@@ -1,0 +1,1 @@
+﻿# DotNetCore5OpenidConnectIdentityProviderWithIdentityServer4

@@ -1,0 +1,6 @@
+﻿@model FrontChannelLogoutViewModel
+@foreach (var url in Model.IframeUrls)
+{
+    <iframe src="@url" style="display:none;"></iframe>
+}
+
